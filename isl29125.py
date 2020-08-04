@@ -92,7 +92,7 @@ class ISL29125:
     #Device commands
     RESET = 0x46
 
-    def __init__(self, configVals, bus=1):
+    def __init__(self, configVals=[0x0d,0x3f,0], bus=1):
         self.bus = smbus.SMBus(bus)
         data = self.bus.read_byte_data(ISL29125.ISL_I2C_ADDR,ISL29125.DEVICE_ID) #read device id
         if not(data == 0x7d):
